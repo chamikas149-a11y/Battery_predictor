@@ -12,7 +12,7 @@ except ImportError:
 
 # 1. Load the model and scaler
 try:
-    model = joblib.load('battery_usability_model.pkl')
+    model = joblib.load('model_compressed.pkl')
     scaler = joblib.load('scaler.pkl')
 except Exception as e:
     st.error(f"Files loading error: {e}")
@@ -144,4 +144,5 @@ if st.session_state.history:
 # Data Logs
 if st.session_state.history:
     st.subheader("📋 Session History Logs")
+
     st.dataframe(pd.DataFrame(st.session_state.history), use_container_width=True)
